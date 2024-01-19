@@ -1,6 +1,10 @@
 package com.cg;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,18 +12,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
 public class ServiceXml {
 
-    private static final Map<String, String> dataMap = new ConcurrentHashMap<>();
+    final Map<String, String> dataMap = new ConcurrentHashMap<>();
+
+    @GetMapping("/")
+    public String index(Model model) {
+        dataMap.clear();
+        model.addAttribute("dataMap",dataMap);
+        return "index";
+    }
 
     @PostMapping("/saveData")
-    public String saveData(
+    public ResponseEntity<Map<String, Object>> saveData(
             @RequestParam("key") String key,
             @RequestParam("data") String[] data) {
+
+        Map<String, Object> responseData = new HashMap<>();
+
 
         // Convert the String array to a single String
         String dataAsString = Arrays.toString(data);
@@ -30,14 +46,19 @@ public class ServiceXml {
         // Optionally, you can save the XML to file here if needed
         // saveXmlToFile();
 
-        // Return some response if needed
-        return "Data saved successfully";
+        // Put the dataMap in the responseData map
+        responseData.put("data", dataMap);
+
+        // Return the ResponseEntity with the responseData and HttpStatus.OK
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 
-
     @RequestMapping("/getData")
-    public String getData() {
-        return "xmlResult";
+    public ResponseEntity<Map> getData() {
+        Map data = new HashMap<>();
+
+        data.put("data", dataMap);
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     private void saveXmlToFile() {
