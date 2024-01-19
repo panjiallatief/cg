@@ -77,20 +77,20 @@
         <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
             <div class="table-responsive">
                 <table class="table table-bordered" id="tablePOPR" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nama Program</th>
-                      <th>CG</th>
-                    </tr>
-                  </thead>
-    
-                  <!-- <tbody th:each="dat:${dataMap}">
+                    <thead>
+                        <tr>
+                            <th>Nama Program</th>
+                            <th>CG</th>
+                        </tr>
+                    </thead>
+
+                    <!-- <tbody th:each="dat:${dataMap}">
                     <td th:text="${popr.PO}"></td>
                     <td th:text="${popr.PR}"></td>
                     <td th:text="${popr.Item_Name}"></td>
                   </tbody> -->
                 </table>
-              </div>
+            </div>
         </div>
     </div>
 </body>
@@ -113,11 +113,7 @@
 
     })
 
-    fetch(`/dueproject`)
-            .then(response => response.json()) // Assuming your API returns the days left as JSON
-            .then(data => {
-                console.log(data)
-            })
+
 
     $("#opsicg").change(function () {
         var opval = $(this).val();
@@ -192,9 +188,12 @@
         $.ajax({
             url: `/saveData?key=${kode}&data=${data}`,
             method: 'POST',
-            success: function(){
-                console.log("berhasil")
-
+            success: function () {
+                fetch(`/getData`)
+                    .then(response => response.json()) // Assuming your API returns the days left as JSON
+                    .then(data => {
+                        console.log(data)
+                    })
             }
         })
 
