@@ -92,7 +92,7 @@
                   </tbody> -->
                 </table>
             </div>
-            <button type="button" id="export" onclick="location.href='/saveXML'"
+            <button type="button" id="export"
                 class="py-2 px-4 mt-2 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2">
                 Export to XML</button>
         </div>
@@ -442,6 +442,16 @@
             }
         })
 
+    })
+
+    $("#export").on('click', function(){
+        $.ajax({
+            url: '/saveXML',
+            method: 'GET',
+            success: function(){
+                location.reload()
+            }
+        })
     })
 
 
