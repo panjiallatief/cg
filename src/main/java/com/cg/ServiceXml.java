@@ -69,7 +69,8 @@ public class ServiceXml {
     public ResponseEntity<Map> saveXml() {
         Map data = new HashMap<>();
         saveXmlToFile(dataMap);
-        data.put("data", dataMap);
+        data.put("icon", "success");
+        data.put("message", "File XML Berhasil Dibuat.");
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
