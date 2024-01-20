@@ -426,7 +426,7 @@
 
 
         $.ajax({
-            url: `/saveData?key=${kode.val()}&data=${data}`,
+            url: `/saveData?nama=${program.val()}&key=${kode.val()}&data=${data}`,
             method: 'POST',
             success: function () {
                 fetch(`/getData`)

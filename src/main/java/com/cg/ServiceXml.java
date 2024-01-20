@@ -25,7 +25,7 @@ import java.util.Map;
 public class ServiceXml {
 
     @Autowired
-    private static Environment env;
+    private Environment env;
     
     private static class DataEntry {
         private String nama;
@@ -91,7 +91,8 @@ public class ServiceXml {
     private void saveXmlToFile(List<DataEntry> dataMap2) {
         String xmlResult = generateXmlFromMap(dataMap2);
         // String filePath = "C:/Users/fadhl/OneDrive/Documents/result.xml";
-        String nama = dataMap2.get(0).getNama();
+        String nm = dataMap2.get(0).getNama();
+        String nama = nm.replace(" ", "_");
         try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN") + nama + ".xml")) {
             fileWriter.write(xmlResult);
             System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN") + nama + ".xml");
@@ -129,7 +130,7 @@ public class ServiceXml {
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
-        xmlBuilder.append("</vdom>\n"); 
+        xmlBuilder.append("</vdom>\n");
         xmlBuilder.append("</archive>\n");
 
         return xmlBuilder.toString();
