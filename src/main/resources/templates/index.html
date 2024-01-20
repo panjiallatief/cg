@@ -446,8 +446,8 @@
 
     $("#export").on('click', function(){
         $.ajax({
-            url: '/saveXML',
-            method: 'GET',
+            url: '/saveXml',
+            method: 'POST',
             success: function(){
                 location.reload()
             }

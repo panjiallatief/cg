@@ -79,7 +79,7 @@ public class ServiceXml {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/saveXml")
+    @PostMapping("/saveXml")
     public ResponseEntity<Map> saveXml() {
         Map data = new HashMap<>();
         saveXmlToFile(dataMap);
