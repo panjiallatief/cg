@@ -52,4 +52,6 @@ server:
   servlet:
     session:
         timeout: PT30M
+URL:
+  FILE_IN: /Users/panjimaulana/Downloads/FORMAT DATA QC 2024/
 ---

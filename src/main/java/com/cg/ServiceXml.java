@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,8 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
 @Controller
 public class ServiceXml {
+
+    @Autowired
+    private static Environment env;
     
     private static class DataEntry {
         private String key;
@@ -76,10 +84,10 @@ public class ServiceXml {
 
     private void saveXmlToFile(List<DataEntry> dataMap2) {
         String xmlResult = generateXmlFromMap(dataMap2);
-        String filePath = "C:/Users/fadhl/OneDrive/Documents/result.xml";
-        try (FileWriter fileWriter = new FileWriter(filePath)) {
+        // String filePath = "C:/Users/fadhl/OneDrive/Documents/result.xml";
+        try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN"))) {
             fileWriter.write(xmlResult);
-            System.out.println("XML saved to file: " + filePath);
+            System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN"));
         } catch (IOException e) {
             e.printStackTrace();
         }
