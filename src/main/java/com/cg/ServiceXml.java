@@ -28,12 +28,18 @@ public class ServiceXml {
     private static Environment env;
     
     private static class DataEntry {
+        private String nama;
         private String key;
         private String[] data;
 
-        public DataEntry(String key, String[] data) {
+        public DataEntry(String nama, String key, String[] data) {
+            this.nama = nama;
             this.key = key;
             this.data = data;
+        }
+
+        public String getNama() {
+            return nama;
         }
 
         public String getKey() {
@@ -55,12 +61,12 @@ public class ServiceXml {
     }
 
     @PostMapping("/saveData")
-    public ResponseEntity<Object> saveData(
+    public ResponseEntity<Object> saveData( @RequestParam("nama") String nama,
             @RequestParam("key") String key,
             @RequestParam("data") String[] data) {
 
         Map<String, Object> responseData = new HashMap<>();
-        dataMap.add(new DataEntry(key, data));
+        dataMap.add(new DataEntry(nama, key, data));
         // saveXmlToFile(dataMap);
         responseData.put("data", dataMap);
         return new ResponseEntity<>(responseData, HttpStatus.OK);
@@ -85,9 +91,10 @@ public class ServiceXml {
     private void saveXmlToFile(List<DataEntry> dataMap2) {
         String xmlResult = generateXmlFromMap(dataMap2);
         // String filePath = "C:/Users/fadhl/OneDrive/Documents/result.xml";
-        try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN"))) {
+        String nama = dataMap2.get(0).getNama();
+        try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN") + nama + ".xml")) {
             fileWriter.write(xmlResult);
-            System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN"));
+            System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN") + nama + ".xml");
         } catch (IOException e) {
             e.printStackTrace();
         }
