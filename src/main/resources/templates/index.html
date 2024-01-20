@@ -444,15 +444,12 @@
 
     })
 
-    $("#export").on('click', function () {
-        $.ajax({
-            url: '/saveXml',
-            method: 'POST',
-            success: function () {
-                location.reload()
-            }
-        })
-    })
+    $("#export").on('click', function(){
+        window.location.href = '/saveXml';
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+    });
 
 
 
