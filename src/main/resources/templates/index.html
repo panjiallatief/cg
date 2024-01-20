@@ -31,9 +31,9 @@
                     <select id="prog"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                         <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                        <option >BS Pagi</option>
-                        <option >BS Siang</option>
-                        <option >BS Malam</option>
+                        <option>BS Pagi</option>
+                        <option>BS Siang</option>
+                        <option>BS Malam</option>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -80,7 +80,7 @@
                 <table class="table table-bordered" id="tabledata" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nama Program</th>
+                            <th>Info</th>
                             <th>CG</th>
                         </tr>
                     </thead>
@@ -164,6 +164,168 @@
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required>
                         <label class="block mb-2 text-sm text-gray-600">Lowerline</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001104':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_3_LINE');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Location</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Upperline</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Lowerline</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001105':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_SELANJUTNYA');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Selanjutnya</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001106':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_HIGHLIGHTS');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title Highligth</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001107':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_TERKINI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title Terkini</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001108':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_TITLE_ATRIBUSI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title Atribusi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001301':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_SPLIT_2');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Kiri</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Kanan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001302':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_SPLIT_3');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Kiri</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Tengah</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Kanan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001303':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_SPLIT_4');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Window 01</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 02</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 03</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 04</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001304':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_SPLIT_3_INSERT');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Kiri</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Tengah</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Kanan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                </div>`)
+                break;
+            case '101001305':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_SPLIT_4_INSERT');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Window 01</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 02</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 03</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required>
+                        <label class="block mb-2 text-sm text-gray-600">Window 04</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required>
