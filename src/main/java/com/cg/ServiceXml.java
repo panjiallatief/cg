@@ -129,7 +129,7 @@ public class ServiceXml {
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
-        xmlBuilder.append("</vdom>\n");
+        xmlBuilder.append("</vdom>\n"); 
         xmlBuilder.append("</archive>\n");
 
         return xmlBuilder.toString();
