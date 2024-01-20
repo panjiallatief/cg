@@ -53,7 +53,7 @@ public class ServiceXml {
 
         Map<String, Object> responseData = new HashMap<>();
         dataMap.add(new DataEntry(key, data));
-        saveXmlToFile(dataMap);
+        // saveXmlToFile(dataMap);
         responseData.put("data", dataMap);
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
@@ -61,7 +61,14 @@ public class ServiceXml {
     @RequestMapping("/getData")
     public ResponseEntity<Map> getData() {
         Map data = new HashMap<>();
+        data.put("data", dataMap);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
 
+    @GetMapping("/saveXml")
+    public ResponseEntity<Map> saveXml() {
+        Map data = new HashMap<>();
+        saveXmlToFile(dataMap);
         data.put("data", dataMap);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
