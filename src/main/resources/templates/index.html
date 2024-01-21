@@ -25,44 +25,85 @@
             <h1 class="text-2xl font-semibold text-center text-gray-500 mt-8 mb-6">Manual CG</h1>
             <form id="tempatlagi">
                 <div class="mb-4">
-                    <label class="block mb-2 text-sm text-gray-600">Program</label>
-                    <select id="prog"
+                    <label class="block mb-2 text-sm text-gray-600">Chanel</label>
+                    <select id="chan"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                         <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                        <option>BS Pagi</option>
-                        <option>BS Siang</option>
-                        <option>BS Malam</option>
+                        <option value="btv">BTV</option>
+                        <option valu="idtv">IDTV</option>
                     </select>
                 </div>
-                <div class="mb-4">
-                    <label class="block mb-2 text-sm text-gray-600">CG</label>
-                    <!-- <input type="text" id="apellido" name="apellido" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required> -->
-                    <select id="opsicg"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
-                        <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                        <option value="101001101">BTV_REG_CG_TITLE</option>
-                        <option value="101001102">BTV_REG_CG_BERITA</option>
-                        <option value="101001103">BTV_REG_CG_2_LINE</option>
-                        <option value="101001104">BTV_REG_CG_3_LINE</option>
-                        <option value="101001105">BTV_REG_CG_SELANJUTNYA</option>
-                        <option value="101001106">BTV_REG_CG_HIGHLIGHTS</option>
-                        <option value="101001107">BTV_REG_CG_TERKINI</option>
-                        <option value="101001108" disabled>BTV_REG_CG_TITLE_ATRIBUSI</option>
-                        <option value="101001301">BTV_SPLIT_2</option>
-                        <option value="101001302">BTV_SPLIT_3</option>
-                        <option value="101001303">BTV_SPLIT_4</option>
-                        <option value="101001304">BTV_SPLIT_3_INSERT</option>
-                        <option value="101001305">BTV_SPLIT_4_INSERT</option>
-                    </select>
-                </div>
-                <!-- <div class="mb-4">
-                    <label class="block mb-2 text-sm text-gray-600">Title</label>
-                    <input type="text" name="email"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        required>
+                <div id='bstv' style="display: none;">
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">Program</label>
+                        <select id="prog"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option>BS Pagi</option>
+                            <option>BS Siang</option>
+                            <option>BS Malam</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">CG</label>
+                        <!-- <input type="text" id="apellido" name="apellido" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required> -->
+                        <select id="opsicg"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option value="101001101">BTV_REG_CG_TITLE</option>
+                            <option value="101001102">BTV_REG_CG_BERITA</option>
+                            <option value="101001103">BTV_REG_CG_2_LINE</option>
+                            <option value="101001104">BTV_REG_CG_3_LINE</option>
+                            <option value="101001105">BTV_REG_CG_SELANJUTNYA</option>
+                            <option value="101001106">BTV_REG_CG_HIGHLIGHTS</option>
+                            <option value="101001107">BTV_REG_CG_TERKINI</option>
+                            <option value="101001108" disabled>BTV_REG_CG_TITLE_ATRIBUSI</option>
+                            <option value="101001301">BTV_SPLIT_2</option>
+                            <option value="101001302">BTV_SPLIT_3</option>
+                            <option value="101001303">BTV_SPLIT_4</option>
+                            <option value="101001304">BTV_SPLIT_3_INSERT</option>
+                            <option value="101001305">BTV_SPLIT_4_INSERT</option>
+                        </select>
+                    </div>
                 </div>
 
-                <!-- <button type="submit" class="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2">Registro</button> -->
+                <div id='indtv' style="display: none;">
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">Program</label>
+                        <select id="prog"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option>Market Open</option>
+                            <option>Market Break</option>
+                            <option>Market Close</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">CG</label>
+                        <!-- <input type="text" id="apellido" name="apellido" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required> -->
+                        <select id="opsicg"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option value="2101101">IDTV_REG_CG_TITLE</option>
+                            <option value="2101102">IDTV_REG_CG_ATRIBUSI</option>
+                            <!-- <option value="101001103">BTV_REG_CG_2_LINE</option> -->
+                            <option value="2101103">IDTV_REG_CG_3_BRS_SUMMARY</option>
+                            <option value="2101104">IDTV_REG_CG_POPUP_ATRIBUSI</option>
+                            <option value="2101105">IDTV_REG_CG_BERITA</option>
+                            <option value="2101106">IDTV_REG_CG_UP_NEXT</option>
+                            <!-- <option value="101001108" disabled>BTV_REG_CG_TITLE_ATRIBUSI</option> -->
+                            <option value="2102301">IDTV_SPLIT_2</option>
+                            <option value="2102302">IDTV_SPLIT_3</option>
+                            <option value="2102304">IDTV_SPLIT_4</option>
+                            <option value="2102303">IDTV_SPLIT_3_INSERT</option>
+                            <option value="2102306">IDTV_SPLIT_4_INSERT</option>
+                            <option value="2102305">IDTV_SPLIT_4_BOX</option>
+                            <option value="2102308">IDTV_SPLIT_INSERT_KIRI</option>
+                            <option value="2102309">IDTV_SPLIT_INSERT_KANAN</option>
+                        </select>
+                    </div>
+                </div>
+            
             </form>
             <button type="button" id="addbtn"
                 class="py-2 px-4 mt-2 bg-green-500 text-white rounded hover:bg-green-700 mr-2"><i class="fas"></i>
@@ -119,6 +160,16 @@
     b.style.minHeight = (c.clientHeight + 'px')
     // console.log($("#utama").height())
 
+    $("#chan").change(function(){
+        var chan = $(this).val();
+        if(chan == 'btv'){
+            document.getElementById('bstv').style.display = 'block'
+            document.getElementById('indtv').style.display = 'none'
+        } else {
+            document.getElementById('bstv').style.display = 'none'
+            document.getElementById('indtv').style.display = 'block'
+        }
+    })
 
 
     $("#opsicg").change(function () {
@@ -444,9 +495,9 @@
 
     })
 
-    $("#export").on('click', function(){
+    $("#export").on('click', function () {
         window.location.href = '/saveXml';
-        setTimeout(function() {
+        setTimeout(function () {
             location.reload();
         }, 1000);
     });
