@@ -495,7 +495,7 @@
             url: `/saveData?nama=${program.val()}&key=${kode.val()}&data=${data}&channel=${Chanel.val()}`,
             method: 'POST',
             success: function () {
-                // document.getElementById('prog').setAttribute('disabled', '')
+                // document.getElementById('prog').setAttribute('disabled', '')z
                 fetch(`/getData`)
                     .then(response => response.json()) // Assuming your API returns the days left as JSON
                     .then(data => {
