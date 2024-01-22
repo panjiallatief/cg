@@ -36,7 +36,7 @@
                 <div id='bstv' style="display: none;">
                     <div class="mb-4">
                         <label class="block mb-2 text-sm text-gray-600">Program</label>
-                        <select id="prog"
+                        <select id="prog_btv" onchange="pilihprog(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
                             <option>BS Pagi</option>
@@ -46,8 +46,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block mb-2 text-sm text-gray-600">CG</label>
-                        <!-- <input type="text" id="apellido" name="apellido" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required> -->
-                        <select id="opsicg"
+                        <select id="opsicg_btv" onchange="pilihcg(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
                             <option value="101001101">BTV_REG_CG_TITLE</option>
@@ -70,7 +69,7 @@
                 <div id='indtv' style="display: none;">
                     <div class="mb-4">
                         <label class="block mb-2 text-sm text-gray-600">Program</label>
-                        <select id="prog"
+                        <select id="prog_idtv" onchange="pilihprog(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
                             <option>Market Open</option>
@@ -81,29 +80,27 @@
                     <div class="mb-4">
                         <label class="block mb-2 text-sm text-gray-600">CG</label>
                         <!-- <input type="text" id="apellido" name="apellido" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required> -->
-                        <select id="opsicg"
+                        <select id="opsicg_idtv" onchange="pilihcg(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
                             <option value="2101101">IDTV_REG_CG_TITLE</option>
-                            <option value="2101102">IDTV_REG_CG_ATRIBUSI</option>
-                            <!-- <option value="101001103">BTV_REG_CG_2_LINE</option> -->
-                            <option value="2101103">IDTV_REG_CG_3_BRS_SUMMARY</option>
-                            <option value="2101104">IDTV_REG_CG_POPUP_ATRIBUSI</option>
+                            <!-- <option value="2101102">IDTV_REG_CG_ATRIBUSI</option> -->
+                            <!-- <option value="2101103">IDTV_REG_CG_3_BRS_SUMMARY</option> -->
+                            <!-- <option value="2101104">IDTV_REG_CG_POPUP_ATRIBUSI</option> -->
                             <option value="2101105">IDTV_REG_CG_BERITA</option>
                             <option value="2101106">IDTV_REG_CG_UP_NEXT</option>
-                            <!-- <option value="101001108" disabled>BTV_REG_CG_TITLE_ATRIBUSI</option> -->
                             <option value="2102301">IDTV_SPLIT_2</option>
                             <option value="2102302">IDTV_SPLIT_3</option>
                             <option value="2102304">IDTV_SPLIT_4</option>
                             <option value="2102303">IDTV_SPLIT_3_INSERT</option>
                             <option value="2102306">IDTV_SPLIT_4_INSERT</option>
-                            <option value="2102305">IDTV_SPLIT_4_BOX</option>
-                            <option value="2102308">IDTV_SPLIT_INSERT_KIRI</option>
-                            <option value="2102309">IDTV_SPLIT_INSERT_KANAN</option>
+                            <!-- <option value="2102305">IDTV_SPLIT_4_BOX</option> -->
+                            <!-- <option value="2102308">IDTV_SPLIT_INSERT_KIRI</option> -->
+                            <!-- <option value="2102309">IDTV_SPLIT_INSERT_KANAN</option> -->
                         </select>
                     </div>
                 </div>
-            
+
             </form>
             <button type="button" id="addbtn"
                 class="py-2 px-4 mt-2 bg-green-500 text-white rounded hover:bg-green-700 mr-2"><i class="fas"></i>
@@ -160,9 +157,9 @@
     b.style.minHeight = (c.clientHeight + 'px')
     // console.log($("#utama").height())
 
-    $("#chan").change(function(){
+    $("#chan").change(function () {
         var chan = $(this).val();
-        if(chan == 'btv'){
+        if (chan == 'btv') {
             document.getElementById('bstv').style.display = 'block'
             document.getElementById('indtv').style.display = 'none'
         } else {
@@ -171,15 +168,24 @@
         }
     })
 
+    var untukcg,untukprog;
 
-    $("#opsicg").change(function () {
-        var opval = $(this).val();
+    function pilihprog(id){
+        untukprog = id;
+        console.log(untukprog)
+    }
+
+    function pilihcg(id){
+        var opval = $('#'+id).val();
         console.log(opval)
+        untukcg = id;
+        console.log(untukcg)
         switch (opval) {
             case '101001101':
+            case '2101101':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_TITLE
-                console.log('Selected: BTV_REG_CG_TITLE');
+                console.log('Selected: BTV_REG_CG_TITLE or IDTV_REG_CG_TITLE');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Title</label>
                     <input type="text" name="isi[]"
@@ -189,10 +195,11 @@
                 </div>`)
                 break;
             case '101001102':
+            case '2101105':
                 $("#tmpt").remove()
 
                 // Action for BTV_REG_CG_BERITA
-                console.log('Selected: BTV_REG_CG_BERITA');
+                console.log('Selected: BTV_REG_CG_BERITA or IDTV_REG_CG_BERITA');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Location</label>
                     <input type="text" name="isi[]"
@@ -253,9 +260,10 @@
                 </div>`)
                 break;
             case '101001105':
+            case '2101106':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_REG_CG_SELANJUTNYA');
+                console.log('Selected: BTV_REG_CG_SELANJUTNYA or IDTV_REG_CG_UP_NEXT');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Selanjutnya</label>
                     <input type="text" name="isi[]"
@@ -303,9 +311,10 @@
             //     </div>`)
             //     break;
             case '101001301':
+            case '2102301':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_SPLIT_2');
+                console.log('Selected: BTV_SPLIT_2 or IDTV_SPLIT_2');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Kiri</label>
                     <input type="text" name="isi[]"
@@ -322,10 +331,11 @@
 
                 </div>`)
                 break;
-            case '101001302':
+            case '101001302' :
+            case '2102302':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_SPLIT_3');
+                console.log('Selected: BTV_SPLIT_3 or IDTV_SPLIT_3');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Kiri</label>
                     <input type="text" name="isi[]"
@@ -348,9 +358,10 @@
                 </div>`)
                 break;
             case '101001303':
+            case '2102304':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_SPLIT_4');
+                console.log('Selected: BTV_SPLIT_4 or IDTV_SPLIT_4');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Window 01</label>
                     <input type="text" name="isi[]"
@@ -378,10 +389,11 @@
 
                 </div>`)
                 break;
-            case '101001304':
+            case '101001304' :
+            case '2102303':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_SPLIT_3_INSERT');
+                console.log('Selected: BTV_SPLIT_3_INSERT or IDTV_SPLIT_3_INSERT');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Kiri</label>
                     <input type="text" name="isi[]"
@@ -404,9 +416,10 @@
                 </div>`)
                 break;
             case '101001305':
+            case '2102306':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
-                console.log('Selected: BTV_SPLIT_4_INSERT');
+                console.log('Selected: BTV_SPLIT_4_INSERT or IDTV_SPLIT_4_INSERT');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Window 01</label>
                     <input type="text" name="isi[]"
@@ -439,16 +452,19 @@
                 // Default action if the selected value doesn't match any case
                 console.log('Selected: Default Action');
         }
+    }
 
-    })
 
     paket = []
 
     $("#addbtn").on("click", function () {
         data = [];
 
-        var kode = $("#opsicg option:selected")
-        var program = $("#prog option:selected")
+        var kode = $("#"+untukcg+" option:selected")
+        var program = $("#"+untukprog+" option:selected")
+        var Chanel = $("#chan option:selected")
+        console.log(kode)
+        console.log(program)
 
         var datanya = document.getElementsByName("isi[]");
         // console.log(datanya.length)
@@ -476,10 +492,10 @@
 
 
         $.ajax({
-            url: `/saveData?nama=${program.val()}&key=${kode.val()}&data=${data}`,
+            url: `/saveData?nama=${program.val()}&key=${kode.val()}&data=${data}&channel=${Chanel.val()}`,
             method: 'POST',
             success: function () {
-                document.getElementById('prog').setAttribute('disabled', '')
+                // document.getElementById('prog').setAttribute('disabled', '')
                 fetch(`/getData`)
                     .then(response => response.json()) // Assuming your API returns the days left as JSON
                     .then(data => {
