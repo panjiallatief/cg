@@ -98,7 +98,6 @@ public class ServiceXml {
     @RequestMapping("/getData")
     public ResponseEntity<Map> getData() {
         Map data = new HashMap<>();
-        System.out.println(dataMap.get(0).getChannel() + "," + dataMap.get(0).getNama());
         data.put("data", dataMap);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
