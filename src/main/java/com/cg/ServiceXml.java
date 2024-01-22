@@ -26,6 +26,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,17 +39,17 @@ public class ServiceXml {
 
     private static class DataEntry {
         private String nama;
-        // private String channel;
+        private String channel;
         private String key;
         private String[] data;
 
         public DataEntry(String nama,
-                // String channel,
+                String channel,
                 String key,
                 String[] data) {
 
             this.nama = nama;
-            // this.channel = channel;
+            this.channel = channel;
             this.key = key;
             this.data = data;
         }
@@ -57,9 +58,9 @@ public class ServiceXml {
             return nama;
         }
 
-        // public String getChannel() {
-        // return channel;
-        // }
+        public String getChannel() {
+            return channel;
+        }
 
         public String getKey() {
             return key;
@@ -87,10 +88,9 @@ public class ServiceXml {
 
         Map<String, Object> responseData = new HashMap<>();
         dataMap.add(new DataEntry(nama,
-                // channel,
+                channel,
                 key,
                 data));
-        // saveXmlToFile(dataMap);
         responseData.put("data", dataMap);
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
@@ -98,6 +98,7 @@ public class ServiceXml {
     @RequestMapping("/getData")
     public ResponseEntity<Map> getData() {
         Map data = new HashMap<>();
+        System.out.println(dataMap.get(0).getChannel() + "," + dataMap.get(0).getNama());
         data.put("data", dataMap);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
@@ -108,6 +109,16 @@ public class ServiceXml {
         String xmlResult = generateXmlFromMap(dataMap);
         String nm = dataMap.get(0).getNama();
         String nama = nm.replace(" ", "_");
+
+        try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN") +
+                nama + ".xml")) {
+            fileWriter.write(xmlResult);
+            System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN") +
+                    nama + ".xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try (PrintWriter writer = new PrintWriter(
                 new OutputStreamWriter(byteArrayOutputStream, StandardCharsets.UTF_8))) {
@@ -121,38 +132,23 @@ public class ServiceXml {
                 .body(byteArrayResource);
     }
 
-    // private void saveXmlToFile(List<DataEntry> dataMap2) {
-    // String xmlResult = generateXmlFromMap(dataMap2);
-    // // String filePath = "C:/Users/fadhl/OneDrive/Documents/result.xml";
-    // String nm = dataMap2.get(0).getNama();
-    // String nama = nm.replace(" ", "_");
-    // try (FileWriter fileWriter = new FileWriter(env.getProperty("URL.FILE_IN") +
-    // nama + ".xml")) {
-    // fileWriter.write(xmlResult);
-    // System.out.println("XML saved to file: " + env.getProperty("URL.FILE_IN") +
-    // nama + ".xml");
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
-
     private String generateXmlFromMap(List<DataEntry> dataMap2) {
         StringBuilder xmlBuilder = new StringBuilder();
         Integer tigak = 3000;
-        // String cnl = dataMap.get(0).getChannel();
+        String cnl = dataMap.get(0).getChannel();
         String btv = "{156ACC91-A335-481B-AD9C-40353AC0A827}";
-        String idtv = "";
+        String idtv = "{156ACC91-A335-481B-AD9C-40353AC0A827}";
 
         xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         xmlBuilder.append("<archive version=\"1.0\" creator=\"trio\" creator_version=\"2.11.2 (Build 15185)\">\n");
         xmlBuilder.append("<vdom>\n");
         xmlBuilder.append("<entry name=\"storage\">\n");
         xmlBuilder.append("<entry name=\"show\">\n");
-        // if (cnl.equals("BTV")) {
+        if (cnl.equals("BTV")) {
             xmlBuilder.append("<entry name=\"" + btv + "\">\n");
-        // } else {
-            // xmlBuilder.append("<entry name=\"" + idtv + "\">\n");
-        // }
+        } else {
+            xmlBuilder.append("<entry name=\"" + idtv + "\">\n");
+        }
 
         for (int i = 1; i <= dataMap2.size(); i++) {
 
@@ -162,17 +158,17 @@ public class ServiceXml {
             xmlBuilder.append(
                     "<element loaded=\"0.00\" description=\"\" available=\"1.00\" layer=\"\" templatedescription=\"\" take_count=\"0\" showautodescription=\"True\" name=\""
                             + elementName + "\">\n");
-            // if (cnl.equals("BTV")) {
+            if (cnl.equals("BTV")) {
                 xmlBuilder.append(
                         "<ref name=\"master_template\">/storage/shows/" + btv + "/mastertemplates/"
                                 + kunci + "</ref>\n")
                         .append("\n");
-            // } else {
-            //     xmlBuilder.append(
-            //             "<ref name=\"master_template\">/storage/shows/" + idtv + "/mastertemplates/"
-            //                     + kunci + "</ref>\n")
-            //             .append("\n");
-            // }
+            } else {
+                xmlBuilder.append(
+                        "<ref name=\"master_template\">/storage/shows/" + idtv + "/mastertemplates/"
+                                + kunci + "</ref>\n")
+                        .append("\n");
+            }
             xmlBuilder.append("<entry name=\"data\">\n").append("\n");
             for (int j = 1; j <= data.length; j++) {
                 xmlBuilder.append("<entry name=\"" + 0 + j + "\">" + data[j - 1] + "</entry>\n").append("\n");
