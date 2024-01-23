@@ -53,5 +53,5 @@ server:
     session:
         timeout: PT30M
 URL:
-  FILE_IN: /Users/panjimaulana/Downloads
+  FILE_IN: "X://"
 ---
