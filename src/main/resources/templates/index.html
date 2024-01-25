@@ -587,9 +587,15 @@
                 console.log('Selected: BTV_OPA_CG_TRENDING');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
                     <label class="block mb-2 text-sm text-gray-600">Pilih Sosmed</label>
-                    <input type="text" name="isi[]"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        required maxlength="40" aria-placeholder="Max 40 character">
+                    <select name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                        <option value="1">Twitter</option>
+                        <option value="2">YouTube</option>
+                        <option value="3">Instagram</option>
+                        <option value="4">Facebook</option>
+                        <option value="5">TikTok</option>
+                    </select>
 
                         <label class="block mb-2 mt-2 text-sm text-gray-600">Trending 1</label>
                     <input type="text" name="isi[]"
@@ -662,9 +668,19 @@
                         required maxlength="50" aria-placeholder="Max 50 character">
 
                         <label class="block mb-2 mt-2 text-sm text-gray-600">Cuaca</label>
-                    <input type="text" name="isi[]"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <select name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                        <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                        <option value="1">Cerah</option>
+                        <option value="2">Cerah Berawan</option>
+                        <option value="3">Berawan</option>
+                        <option value="4">Hujan Ringan</option>
+                        <option value="5">Hujan Sedang</option>
+                        <option value="6">Hujan Lebat</option>
+                        <option value="7">Hujan Petir</option>
+                        <option value="8">Berkabut</option>
+                    </select>
+                    
                 </div>`)
                 break;
             case '11004101':
@@ -821,7 +837,7 @@
     }
 
 
-    paket = []
+    // paket = []
 
     $("#addbtn").on("click", function () {
         data = [];
