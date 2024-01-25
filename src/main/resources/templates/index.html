@@ -29,8 +29,9 @@
                     <select id="chan"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                         <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                        <option value="btv">BTV</option>
-                        <option valu="idtv">IDTV</option>
+                        <option value="btv">BTV (Buletin)</option>
+                        <option value="btvn">BTV (News mag)</option>
+                        <option value="idtv">IDTV</option>
                     </select>
                 </div>
                 <div id='bstv' style="display: none;">
@@ -39,9 +40,15 @@
                         <select id="prog_btv" onchange="pilihprog(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                            <option>BS Pagi</option>
-                            <option>BS Siang</option>
-                            <option>BS Malam</option>
+                            <option>Beritasatu Pagi</option>
+                            <option>Beritasatu Siang</option>
+                            <option>Beritasatu Sore</option>
+                            <option>Beritasatu Malam</option>
+                            <option>Beritasatu Utama</option>
+                            <option>Beritasatu Terkini</option>
+                            <option>Beritasatu Special</option>
+                            <option>Bersatu Kawal Pemilu</option>
+                            <option>Beritasatu Breaking News</option>
                         </select>
                     </div>
                     <div class="mb-4">
@@ -66,15 +73,45 @@
                     </div>
                 </div>
 
+                <div id='bstvn' style="display: none;">
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">Program</label>
+                        <select id="prog_btvn" onchange="pilihprog(this.id)"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option>Obrolan Pagi</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm text-gray-600">CG</label>
+                        <select id="opsicg_btvn" onchange="pilihcg(this.id)"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <option class="dark:text-white" value="" disabled selected>--Select--</option>
+                            <option value="11004101">BTV_OPA_CG_TITLE</option>
+                            <option value="11004102">BTV_OPA_CG_BERITA</option>
+                            <option value="11004103">BTV_OPA_CG_2_LINE</option>
+                            <option value="11004104">BTV_OPA_CG_TITLE_ATRIBUSI</option>
+                            <option value="11004105">BTV_OPA_CG_SUMMARY</option>
+                            <option value="11004107">BTV_OPA_CG_TRENDING</option>
+                            <option value="11004108">BTV_OPA_CG_3_LINE</option>
+                            <option value="11004109">BTV_OPA_CG_SELANJUTNYA</option>
+                            <option value="11004701">BTV_OPA_WEATHER</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div id='indtv' style="display: none;">
                     <div class="mb-4">
                         <label class="block mb-2 text-sm text-gray-600">Program</label>
                         <select id="prog_idtv" onchange="pilihprog(this.id)"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
-                            <option>Market Open</option>
-                            <option>Market Break</option>
-                            <option>Market Close</option>
+                            <option>Investor Marketing Opening</option>
+                            <option>Investor Marketing Closing</option>
+                            <option>Investor Marketing Today</option>
+                            <option>Investor Daily Talk</option>
+                            <option>Investor Daily Special</option>
+                            <option>Investor Breaking News</option>
                         </select>
                     </div>
                     <div class="mb-4">
@@ -84,9 +121,9 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
                             <option class="dark:text-white" value="" disabled selected>--Select--</option>
                             <option value="2101101">IDTV_REG_CG_TITLE</option>
-                            <!-- <option value="2101102">IDTV_REG_CG_ATRIBUSI</option> -->
-                            <!-- <option value="2101103">IDTV_REG_CG_3_BRS_SUMMARY</option> -->
-                            <!-- <option value="2101104">IDTV_REG_CG_POPUP_ATRIBUSI</option> -->
+                            <option value="2101102">IDTV_REG_CG_ATRIBUSI</option>
+                            <option value="2101103">IDTV_REG_CG_3_BRS_SUMMARY</option>
+                            <option value="2101104">IDTV_REG_CG_POPUP_ATRIBUSI</option>
                             <option value="2101105">IDTV_REG_CG_BERITA</option>
                             <option value="2101106">IDTV_REG_CG_UP_NEXT</option>
                             <option value="2102301">IDTV_SPLIT_2</option>
@@ -94,9 +131,9 @@
                             <option value="2102304">IDTV_SPLIT_4</option>
                             <option value="2102303">IDTV_SPLIT_3_INSERT</option>
                             <option value="2102306">IDTV_SPLIT_4_INSERT</option>
-                            <!-- <option value="2102305">IDTV_SPLIT_4_BOX</option> -->
-                            <!-- <option value="2102308">IDTV_SPLIT_INSERT_KIRI</option> -->
-                            <!-- <option value="2102309">IDTV_SPLIT_INSERT_KANAN</option> -->
+                            <option value="2102305">IDTV_SPLIT_4_BOX</option>
+                            <option value="2102308">IDTV_SPLIT_INSERT_KIRI</option>
+                            <option value="2102309">IDTV_SPLIT_INSERT_KANAN</option>
                         </select>
                     </div>
                 </div>
@@ -161,22 +198,28 @@
         var chan = $(this).val();
         if (chan == 'btv') {
             document.getElementById('bstv').style.display = 'block'
+            document.getElementById('bstvn').style.display = 'none'
+            document.getElementById('indtv').style.display = 'none'
+        } else if (chan == 'btvn') {
+            document.getElementById('bstv').style.display = 'none'
+            document.getElementById('bstvn').style.display = 'block'
             document.getElementById('indtv').style.display = 'none'
         } else {
             document.getElementById('bstv').style.display = 'none'
+            document.getElementById('bstvn').style.display = 'none'
             document.getElementById('indtv').style.display = 'block'
         }
     })
 
-    var untukcg,untukprog;
+    var untukcg, untukprog;
 
-    function pilihprog(id){
+    function pilihprog(id) {
         untukprog = id;
         console.log(untukprog)
     }
 
-    function pilihcg(id){
-        var opval = $('#'+id).val();
+    function pilihcg(id) {
+        var opval = $('#' + id).val();
         console.log(opval)
         untukcg = id;
         console.log(untukcg)
@@ -207,7 +250,7 @@
                         required maxlength="65" aria-placeholder="Max 65 character">
                         <small class='text-gray-300'>Max 65 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">News Info</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Title</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="41" aria-placeholder="Max 41 character">
@@ -268,7 +311,7 @@
                     <label class="block mb-2 text-sm text-gray-600">Selanjutnya</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        required maxlength="46" value='SELANJUTNYA' aria-placeholder="Max 46 character">
+                        required maxlength="46" value='' aria-placeholder="Max 46 character">
                         <small class='text-gray-300'>Max 46 character</small>
 
                 </div>`)
@@ -299,17 +342,30 @@
 
                 </div>`)
                 break;
-            // case '101001108':
-            //     $("#tmpt").remove()
-            //     // Action for BTV_REG_CG_2_LINE
-            //     console.log('Selected: BTV_REG_CG_TITLE_ATRIBUSI');
-            //     $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
-            //         <label class="block mb-2 text-sm text-gray-600">Title Atribusi</label>
-            //         <input type="text" name="isi[]"
-            //             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            //             required>
-            //     </div>`)
-            //     break;
+            case '101001108':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_TITLE_ATRIBUSI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="46" aria-placeholder="Max 46 character">
+                        <small class='text-gray-300'>Max 46 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">nama</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="37" aria-placeholder="Max 37 character">
+                        <small class='text-gray-300'>Max 37 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Jabatan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="47" aria-placeholder="Max 47 character">
+                        <small class='text-gray-300'>Max 47 character</small>
+                </div>`)
+                break;
             case '101001301':
             case '2102301':
                 $("#tmpt").remove()
@@ -331,7 +387,7 @@
 
                 </div>`)
                 break;
-            case '101001302' :
+            case '101001302':
             case '2102302':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
@@ -363,25 +419,25 @@
                 // Action for BTV_REG_CG_2_LINE
                 console.log('Selected: BTV_SPLIT_4 or IDTV_SPLIT_4');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
-                    <label class="block mb-2 text-sm text-gray-600">Window 01</label>
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi 01</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Window 02</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 02</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Window 03</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 03</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Window 04</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 04</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
@@ -389,25 +445,25 @@
 
                 </div>`)
                 break;
-            case '101001304' :
+            case '101001304':
             case '2102303':
                 $("#tmpt").remove()
                 // Action for BTV_REG_CG_2_LINE
                 console.log('Selected: BTV_SPLIT_3_INSERT or IDTV_SPLIT_3_INSERT');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
-                    <label class="block mb-2 text-sm text-gray-600">Kiri</label>
+                    <label class="block mb-2 text-sm text-gray-600">Insert</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="50" aria-placeholder="Max 50 character">
                         <small class='text-gray-300'>Max 50 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Tengah</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi Atas</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="32" aria-placeholder="Max 32 character">
                         <small class='text-gray-300'>Max 32 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Kanan</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi Bawah</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="32" aria-placeholder="Max 32 character">
@@ -421,30 +477,321 @@
                 // Action for BTV_REG_CG_2_LINE
                 console.log('Selected: BTV_SPLIT_4_INSERT or IDTV_SPLIT_4_INSERT');
                 $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
-                    <label class="block mb-2 text-sm text-gray-600">Window 01</label>
+                    <label class="block mb-2 text-sm text-gray-600">Insert</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="64" aria-placeholder="Max 64 character">
+                        <small class='text-gray-300'>Max 64 character</small>
+
+                        <label class="block mb-2 text-sm mt-2 text-gray-600">Lokasi Atas</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="24" aria-placeholder="Max 24 character">
+                        <small class='text-gray-300'>Max 24 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi Tengah</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="24" aria-placeholder="Max 24 character">
+                        <small class='text-gray-300'>Max 24 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi Bawah</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="24" aria-placeholder="Max 24 character">
+                        <small class='text-gray-300'>Max 24 character</small>
+
+                </div>`)
+                break;
+            case '11004102':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_BERITA');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="55" aria-placeholder="Max 55 character">
+                        <small class='text-gray-300'>Max 55 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Berita</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="65" aria-placeholder="Max 65 character">
+                        <small class='text-gray-300'>Max 65 character</small>
+                </div>`)
+                break;
+            case '11004103':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_2_LINE');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Nama</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Jabatan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
+                </div>`)
+                break;
+            case '11004104':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_TITLE_ATRIBUSI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="40" aria-placeholder="Max 40 character">
+                        <small class='text-gray-300'>Max 40 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Nama</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="30" aria-placeholder="Max 30 character">
+                        <small class='text-gray-300'>Max 30 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Jabatan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="40" aria-placeholder="Max 40 character">
+                        <small class='text-gray-300'>Max 40 character</small>
+                </div>`)
+                break;
+            case '11004105':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_SUMMARY');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="42" aria-placeholder="Max 42 character">
+                        <small class='text-gray-300'>Max 42 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Sumary</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="60" aria-placeholder="Max 60 character">
+                        <small class='text-gray-300'>Max 60 character</small>
+                </div>`)
+                break;
+            case '11004107':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_TRENDING');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Pilih Sosmed</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="40" aria-placeholder="Max 40 character">
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Trending 1</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
 
-                        <label class="block mb-2 text-sm mt-2 text-gray-600">Window 02</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Trending 2</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
 
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Window 03</label>
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Trending 3</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required maxlength="25" aria-placeholder="Max 25 character">
                         <small class='text-gray-300'>Max 25 character</small>
-
-                        <label class="block mb-2 mt-2 text-sm text-gray-600">Window 04</label>
+                </div>`)
+                break;
+            case '11004108':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_3_LINE');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi</label>
                     <input type="text" name="isi[]"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        required maxlength="25" aria-placeholder="Max 25 character">
-                        <small class='text-gray-300'>Max 25 character</small>
+                        required maxlength="55" aria-placeholder="Max 55 character">
+                        <small class='text-gray-300'>Max 55 character</small>
 
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Berita</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
+                </div>`)
+                break;
+            case '11004109':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_CG_SELANJUTNYA');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="18" aria-placeholder="Max 18 character">
+                        <small class='text-gray-300'>Max 18 character</small>
+                </div>`)
+                break;
+            case '11004701':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_OPA_WEATHER');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Kota</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Suhu</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Cuaca</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                </div>`)
+                break;
+            case '11004101':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_TITLE
+                console.log('Selected: BTV_OPA_CG_TITLE');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Title</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="42" required aria-placeholder="Max 42 character">
+                        <small class='text-gray-300'>Max 42 character</small>
+                </div>`)
+                break;
+            case '2101103':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_TITLE
+                console.log('Selected: IDTV_REG_CG_3_BRS_SUMMARY');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="68" required aria-placeholder="Max 68 character">
+                        <small class='text-gray-300'>Max 68 character</small>
+
+                        <label class="block mb-2 text-sm text-gray-600">Isi Berita</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="41" required aria-placeholder="Max 41 character">
+                        <small class='text-gray-300'>Max 41 character</small>
+
+                        <label class="block mb-2 text-sm text-gray-600">Summary</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="68" required aria-placeholder="Max 68 character">
+                        <small class='text-gray-300'>Max 68 character</small>
+                </div>`)
+                break;
+            case '2101104':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_TITLE
+                console.log('Selected: IDTV_REG_CG_POPUP_ATRIBUSI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Nama Depan</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="15" required aria-placeholder="Max 15 character">
+                        <small class='text-gray-300'>Max 15 character</small>
+
+                        <label class="block mb-2 text-sm text-gray-600">Nama Belakang</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="15" required aria-placeholder="Max 15 character">
+                        <small class='text-gray-300'>Max 15 character</small>
+
+                        <label class="block mb-2 text-sm text-gray-600">Atribusi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        maxlength="62" required aria-placeholder="Max 62 character">
+                        <small class='text-gray-300'>Max 62 character</small>
+                </div>`)
+                break;
+            case '2102305':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: IDTV_SPLIT_4_BOX');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi 01</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="36" aria-placeholder="Max 36 character">
+                        <small class='text-gray-300'>Max 36 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 02</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="36" aria-placeholder="Max 36 character">
+                        <small class='text-gray-300'>Max 36 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 03</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="36" aria-placeholder="Max 36 character">
+                        <small class='text-gray-300'>Max 36 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Lokasi 04</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="36" aria-placeholder="Max 36 character">
+                        <small class='text-gray-300'>Max 36 character</small>
+
+                </div>`)
+                break;
+            case '2102308':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: IDTV_SPLIT_INSERT_KIRI');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="32" aria-placeholder="Max 32 character">
+                        <small class='text-gray-300'>Max 32 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Insert</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
+                </div>`)
+                break;
+            case '2102309':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: IDTV_SPLIT_INSERT_KANAN');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Lokasi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="32" aria-placeholder="Max 32 character">
+                        <small class='text-gray-300'>Max 32 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Insert</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="50" aria-placeholder="Max 50 character">
+                        <small class='text-gray-300'>Max 50 character</small>
                 </div>`)
                 break;
             // Add more cases as needed
@@ -460,9 +807,10 @@
     $("#addbtn").on("click", function () {
         data = [];
 
-        var kode = $("#"+untukcg+" option:selected")
-        var program = $("#"+untukprog+" option:selected")
+        var kode = $("#" + untukcg + " option:selected")
+        var program = $("#" + untukprog + " option:selected")
         var Chanel = $("#chan option:selected")
+        console.log(Chanel)
         console.log(kode)
         console.log(program)
 
