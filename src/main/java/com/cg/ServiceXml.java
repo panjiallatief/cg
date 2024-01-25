@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
@@ -37,17 +40,15 @@ public class ServiceXml {
     @Autowired
     private Environment env;
 
+    private Map<String, List<DataEntry>> userSessionDataMap = new HashMap<>();
+
     private static class DataEntry {
         private String nama;
         private String channel;
         private String key;
         private String[] data;
 
-        public DataEntry(String nama,
-                String channel,
-                String key,
-                String[] data) {
-
+        public DataEntry(String nama, String channel, String key, String[] data) {
             this.nama = nama;
             this.channel = channel;
             this.key = key;
@@ -71,39 +72,67 @@ public class ServiceXml {
         }
     }
 
-    private List<DataEntry> dataMap = new ArrayList<>();
-
     @GetMapping("/")
-    public String index(Model model) {
-        dataMap.clear();
+    public String index(Model model, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        userSessionDataMap.clear();
+        if (userId == null) {
+            userId = "user" + System.currentTimeMillis();
+            session.setAttribute("userId", userId);
+            userSessionDataMap.put(userId, new ArrayList<>());
+        }
+
+        List<DataEntry> dataMap = userSessionDataMap.get(userId);
         model.addAttribute("dataMap", dataMap);
         return "index";
     }
 
     @PostMapping("/saveData")
     public ResponseEntity<Object> saveData(@RequestParam("nama") String nama,
-            @RequestParam("channel") String channel,
-            @RequestParam("key") String key,
-            @RequestParam("data") String[] data) {
+                                           @RequestParam("channel") String channel,
+                                           @RequestParam("key") String key,
+                                           @RequestParam("data") String[] data,
+                                           HttpSession session) {
+
+        String userId = (String) session.getAttribute("userId");
+        if (userId == null) {
+            userId = "user" + System.currentTimeMillis();
+            session.setAttribute("userId", userId);
+            userSessionDataMap.put(userId, new ArrayList<>());
+        }
 
         Map<String, Object> responseData = new HashMap<>();
-        dataMap.add(new DataEntry(nama,
-                channel,
-                key,
-                data));
-        responseData.put("data", dataMap);
+        userSessionDataMap.computeIfAbsent(userId, k -> new ArrayList<>())
+                .add(new DataEntry(nama, channel, key, data));
+
+        responseData.put("data", userSessionDataMap.get(userId));
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 
     @RequestMapping("/getData")
-    public ResponseEntity<Map> getData() {
-        Map data = new HashMap<>();
-        data.put("data", dataMap);
+    public ResponseEntity<Map> getData(HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        if (userId == null) {
+            userId = "user" + System.currentTimeMillis();
+            session.setAttribute("userId", userId);
+            userSessionDataMap.put(userId, new ArrayList<>());
+        }
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("data", userSessionDataMap.get(userId));
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @RequestMapping(path = "/saveXml", method = RequestMethod.GET)
-    public ResponseEntity<ByteArrayResource> downloadLargeFile() throws IOException {
+    public ResponseEntity<ByteArrayResource> downloadLargeFile(HttpSession session) throws IOException {
+        String userId = (String) session.getAttribute("userId");
+        if (userId == null) {
+            userId = "user" + System.currentTimeMillis();
+            session.setAttribute("userId", userId);
+            userSessionDataMap.put(userId, new ArrayList<>());
+        }
+
+        List<DataEntry> dataMap = userSessionDataMap.get(userId);
         final HttpHeaders httpHeaders = new HttpHeaders();
         String xmlResult = generateXmlFromMap(dataMap);
         String nm = dataMap.get(0).getNama();
@@ -134,7 +163,7 @@ public class ServiceXml {
     private String generateXmlFromMap(List<DataEntry> dataMap2) {
         StringBuilder xmlBuilder = new StringBuilder();
         Integer tigak = 3000;
-        String cnl = dataMap.get(0).getChannel();
+        String cnl = dataMap2.get(0).getChannel();
         String btv = "{156ACC91-A335-481B-AD9C-40353AC0A827}";
         String idtv = "{156ACC91-A335-481B-AD9C-40353AC0A827}";
 
@@ -142,13 +171,12 @@ public class ServiceXml {
         xmlBuilder.append("<archive version=\"1.0\" creator=\"trio\" creator_version=\"2.11.2 (Build 15185)\">\n");
         xmlBuilder.append("<vdom>\n");
         xmlBuilder.append("<entry name=\"storage\">\n");
-        xmlBuilder.append("<entry name=\"shows\">\n");
+        xmlBuilder.append("<entry name=\"show\">\n");
         if (cnl.equals("BTV")) {
             xmlBuilder.append("<entry name=\"" + btv + "\">\n");
         } else {
             xmlBuilder.append("<entry name=\"" + idtv + "\">\n");
         }
-        xmlBuilder.append("<entry name=\"elements\">\n");
 
         for (int i = 1; i <= dataMap2.size(); i++) {
 
@@ -177,7 +205,6 @@ public class ServiceXml {
             xmlBuilder.append("</element>");
 
         }
-        xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
