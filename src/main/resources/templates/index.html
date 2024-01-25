@@ -63,7 +63,7 @@
                             <option value="101001105">BTV_REG_CG_SELANJUTNYA</option>
                             <option value="101001106">BTV_REG_CG_HIGHLIGHTS</option>
                             <option value="101001107">BTV_REG_CG_TERKINI</option>
-                            <option value="101001108" disabled>BTV_REG_CG_TITLE_ATRIBUSI</option>
+                            <option value="101001108">BTV_REG_CG_TITLE_ATRIBUSI</option>
                             <option value="101001301">BTV_SPLIT_2</option>
                             <option value="101001302">BTV_SPLIT_3</option>
                             <option value="101001303">BTV_SPLIT_4</option>
@@ -677,6 +677,25 @@
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         maxlength="42" required aria-placeholder="Max 42 character">
                         <small class='text-gray-300'>Max 42 character</small>
+                </div>`)
+                break;
+            case '2101102':
+                $("#tmpt").remove()
+                // Action for BTV_REG_CG_2_LINE
+                console.log('Selected: BTV_REG_CG_2_LINE');
+                $("#tempatlagi").append(`<div id="tmpt" class="mb-4 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600">Nama</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="46" aria-placeholder="Max 46 character">
+                        <small class='text-gray-300'>Max 41 character</small>
+
+                        <label class="block mb-2 mt-2 text-sm text-gray-600">Atribusi</label>
+                    <input type="text" name="isi[]"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                        required maxlength="70" aria-placeholder="Max 77 character">
+                        <small class='text-gray-300'>Max 70 character</small>
+
                 </div>`)
                 break;
             case '2101103':
