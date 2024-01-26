@@ -171,12 +171,14 @@ public class ServiceXml {
         xmlBuilder.append("<archive version=\"1.0\" creator=\"trio\" creator_version=\"2.11.2 (Build 15185)\">\n");
         xmlBuilder.append("<vdom>\n");
         xmlBuilder.append("<entry name=\"storage\">\n");
-        xmlBuilder.append("<entry name=\"show\">\n");
+        xmlBuilder.append("<entry name=\"shows\">\n");
         if (cnl.equals("BTV")) {
             xmlBuilder.append("<entry name=\"" + btv + "\">\n");
         } else {
             xmlBuilder.append("<entry name=\"" + idtv + "\">\n");
         }
+
+        xmlBuilder.append("<entry name=\"elements\">\n");
 
         for (int i = 1; i <= dataMap2.size(); i++) {
 
@@ -205,6 +207,7 @@ public class ServiceXml {
             xmlBuilder.append("</element>");
 
         }
+        xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
         xmlBuilder.append("</entry>\n");
