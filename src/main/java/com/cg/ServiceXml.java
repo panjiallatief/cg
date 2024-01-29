@@ -101,6 +101,19 @@ public class ServiceXml {
             userSessionDataMap.put(userId, new ArrayList<>());
         }
 
+        // System.out.println(Arrays.toString(data));
+
+        // List<String> result = new ArrayList<>();
+        // for (String input : data) {
+        //     String[] words = input.split(",\\s*");
+        //     String joinedString = String.join(", ", words);
+        //     result.add(joinedString);
+        // }
+
+
+        // System.out.println(result);
+
+
         Map<String, Object> responseData = new HashMap<>();
         userSessionDataMap.computeIfAbsent(userId, k -> new ArrayList<>())
                 .add(new DataEntry(nama, channel, key, data));
@@ -201,7 +214,9 @@ public class ServiceXml {
             }
             xmlBuilder.append("<entry name=\"data\">\n").append("\n");
             for (int j = 1; j <= data.length; j++) {
-                xmlBuilder.append("<entry name=\"" + 0 + j + "\">" + data[j - 1] + "</entry>\n").append("\n");
+                String dataj = data[j - 1].replace(";", ",");
+                System.out.println(dataj);
+                xmlBuilder.append("<entry name=\"" + 0 + j + "\">" + dataj + "</entry>\n").append("\n");
             }
             xmlBuilder.append("</entry>\n");
             xmlBuilder.append("</element>");
